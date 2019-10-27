@@ -1,0 +1,22 @@
+<?php
+function buatAlert($pesan, $tipe)
+{
+  $_SESSION['alert'] = [
+    'pesan' => $pesan,
+    'tipe' => $tipe
+  ];
+}
+function Alert()
+{
+  if (isset($_SESSION['alert'])) {
+    echo '
+    <div class="alert alert-' . $_SESSION['alert']['tipe'] . ' alert-dismissible fade show" role="alert">
+      <span class="alert-inner--text">' . $_SESSION['alert']['pesan'] . '</span>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    ';
+    unset($_SESSION['alert']);
+  }
+}

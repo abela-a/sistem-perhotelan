@@ -15,5 +15,6 @@ $query_simpan_jasa = "INSERT INTO jasa VALUES(
 $simpan_jasa = mysqli_query($db, $query_simpan_jasa);
 
 if ($simpan_jasa) {
+  buatAlert('Jasa berhasil disimpan!', 'success');
   header('Location:../../views/admin/v_jasa.php');
 }
