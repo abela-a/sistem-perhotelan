@@ -9,6 +9,10 @@
 <script src="../../../public/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 <!-- ARGON -->
 <script src="../../../public/js/argon.min.js"></script>
+<!-- DATATABLES -->
+<script src="../../../public/vendor/datatables/datatables.min.js"></script>
+<!-- SCRIPT KU -->
+<script src="../../../public/js/script.js"></script>
 
 </body>
 
