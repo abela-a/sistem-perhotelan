@@ -18,11 +18,11 @@ $no = 1;
       Tambah Jasa
     </button>
   </div>
-  <div class="mt-2">
-    <?php Alert(); ?>
-  </div>
 </div>
 <div class="container mt-4 bg-white rounded p-5 shadow-sm">
+
+  <?php Alert(); ?>
+
   <table class="table align-items-center table-flush mt-4" id="datatables">
     <thead class="thead-light">
       <tr>

@@ -14,5 +14,9 @@ $query_edit_jasa = "UPDATE jasa SET
 $edit_jasa = mysqli_query($db, $query_edit_jasa);
 
 if ($edit_jasa) {
+  buatAlert('Jasa berhasil diubah!', 'success', 'fas fa-edit');
+  header('Location:../../views/admin/v_jasa.php');
+} else {
+  buatAlert('Jasa gagal diubah!', 'danger', 'fas fa-edit');
   header('Location:../../views/admin/v_jasa.php');
 }
