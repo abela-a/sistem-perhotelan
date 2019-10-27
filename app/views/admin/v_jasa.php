@@ -75,11 +75,11 @@ $no = 1;
         <div class="modal-body bg-secondary px-5">
           <div class="form-group">
             <label for="kode_jasa">Kode Jasa</label>
-            <input type="text" class="form-control" id="kode_jasa" name="kode_jasa">
+            <input type="text" class="form-control" id="kode_jasa" name="kode_jasa" autocomplete="off">
           </div>
           <div class="form-group">
             <label for="jasa">Jasa</label>
-            <input type="text" class="form-control" id="jasa" name="jasa">
+            <input type="text" class="form-control" id="jasa" name="jasa" autocomplete="off">
           </div>
           <div class="form-group">
             <label for="unit_jasa">Unit Jasa</label>
@@ -98,7 +98,7 @@ $no = 1;
               <div class="input-group-prepend">
                 <span class="input-group-text">Rp.</span>
               </div>
-              <input type="number" class="form-control" id="harga_jasa" name="harga_jasa">
+              <input type="number" class="form-control" id="harga_jasa" name="harga_jasa" autocomplete="off" auto>
             </div>
           </div>
         </div>
