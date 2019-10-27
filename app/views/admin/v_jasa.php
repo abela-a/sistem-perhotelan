@@ -18,7 +18,6 @@ $no = 1;
       Tambah Jasa
     </button>
   </div>
-
 </div>
 <div class="container mt-4 bg-white rounded p-5 shadow-sm">
   <table class="table align-items-center table-flush mt-4" id="datatables">
@@ -29,7 +28,7 @@ $no = 1;
         <th scope="col">Jasa</th>
         <th scope="col">Unit Jasa</th>
         <th scope="col">Harga Jasa</th>
-        <th scope="col" style="width:15px"></th>
+        <th scope="col" style="width:10px"></th>
       </tr>
     </thead>
     <tbody>
