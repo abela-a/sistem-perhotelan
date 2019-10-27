@@ -44,17 +44,100 @@ $no = 1;
               <i class="fas fa-ellipsis-v fa-fw" aria-hidden="true"></i>
             </button>
             <div class="dropdown-menu dropdown-menu-right mt-2">
-              <button class="dropdown-item" data-toggle="modal" data-target="">
+              <button class="dropdown-item" data-toggle="modal" data-target="#EditJasa<?= $jasa['kode_jasa'] ?>">
                 <i class="fas fa-edit fa-fw"></i>
                 Edit
               </button>
-              <button class="dropdown-item" data-toggle="modal" data-target="">
+              <button class="dropdown-item" data-toggle="modal" data-target="#HapusJasa<?= $jasa['kode_jasa'] ?>">
                 <i class="fas fa-trash fa-fw"></i>
                 Hapus
               </button>
             </div>
           </td>
         </tr>
+
+        <!-- MODAL EDIT -->
+        <div class="modal fade" id="EditJasa<?= $jasa['kode_jasa'] ?>" tabindex="-1" role="dialog" aria-labelledby="EditJasaLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="EditJasaLabel">Edit Jasa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <form action="../../models/updates/u_jasa.php" method="POST">
+                <div class="modal-body bg-secondary px-5">
+                  <div class="form-group">
+                    <label for="kode_jasa">Kode Jasa</label>
+                    <input type="text" class="form-control" id="kode_jasa" name="kode_jasa" autocomplete="off" readonly value="<?= $jasa['kode_jasa'] ?>">
+                  </div>
+                  <div class="form-group">
+                    <label for="jasa">Jasa</label>
+                    <input type="text" class="form-control" id="jasa" name="jasa" autocomplete="off" value="<?= $jasa['jasa'] ?>">
+                  </div>
+                  <div class="form-group">
+                    <label for="unit_jasa">Unit Jasa</label>
+                    <select class="form-control" id="unit_jasa" name="unit_jasa">
+                      <option selected disabled>Pilih Unit Jasa</option>
+                      <option <?php if ($jasa['unit_jasa'] == 'Kebersihan') echo 'selected' ?>>Kebersihan</option>
+                      <option <?php if ($jasa['unit_jasa'] == 'Keamanan') echo 'selected' ?>>Keamanan</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="harga_jasa">Harga Jasa</label>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">Rp.</span>
+                      </div>
+                      <input type="number" class="form-control" id="harga_jasa" name="harga_jasa" autocomplete="off" value="<?= $jasa['harga_jasa'] ?>">
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Keluar</button>
+                  <button type="submit" class="btn btn-primary">Edit Jasa</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- /MODAL EDIT -->
+
+        <!-- MODAL HAPUS -->
+        <div class="modal fade" id="HapusJasa<?= $jasa['kode_jasa'] ?>" tabindex="-1" role="dialog" aria-labelledby="HapusJasaLabel" aria-hidden="true">
+          <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+            <div class="modal-content bg-gradient-danger">
+
+              <div class="modal-header">
+                <h6 class="modal-title" id="HapusJasaLabel">Hapus Jasa</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <form action="../../models/deletes/d_jasa.php" method="POST">
+                <div class="modal-body">
+
+                  <div class="py-3 text-center">
+                    <i class="fa fa-trash fa-fw fa-3x" aria-hidden="true"></i>
+                    <h4 class="heading mt-4">Apakah Anda yakin akan menghapus?</h4>
+                    <p>
+                      Data jasa "<?= $jasa['jasa']; ?>" dengan kode <u><?= $jasa['kode_jasa']; ?></u> dalam unit jasa <u><?= $jasa['unit_jasa']; ?></u> seharga Rp. <?= $jasa['harga_jasa']; ?>,-
+                    </p>
+                  </div>
+
+                </div>
+
+                <div class="modal-footer">
+                  <input type="hidden" name="kode_jasa" value="<?= $jasa['kode_jasa'] ?>">
+                  <button type="submit" class="btn btn-white">Ok, Hapus</button>
+                  <button type="button" class="btn btn-link text-white ml-auto" data-dismiss="modal">Batal</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- /MODAL HAPUS -->
       <?php endwhile; ?>
     </tbody>
   </table>
