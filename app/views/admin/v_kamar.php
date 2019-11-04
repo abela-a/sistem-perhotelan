@@ -14,7 +14,7 @@ $no = 1;
       <?= $judul; ?>
     </h1>
     <button class="btn btn-primary float-right mt-3" data-toggle="modal" data-target="#TambahKamar">
-      <i class="fas fa-briefcase fa-fw"></i>
+      <i class="fas fa-bed fa-fw"></i>
       Tambah Kamar
     </button>
   </div>
