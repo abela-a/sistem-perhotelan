@@ -6,8 +6,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- FAVICON -->
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <!-- FONTAWESOME -->
   <link rel="stylesheet" href="../../../public/vendor/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="../../../public/vendor/nucleo/css/nucleo.css">
