@@ -171,8 +171,15 @@ $no = 1;
       <form action="../../models/saves/s_tamu.php" method="POST">
         <div class="modal-body bg-secondary px-5">
           <div class="form-group">
+
+            <?php
+            $query_autonumber = mysqli_query($db, "SELECT * FROM tamu ORDER BY id_tamu DESC LIMIT 1");
+            $latestKD = mysqli_fetch_assoc($query_autonumber);
+            $id_tamu = autonumber($latestKD['id_tamu'], 3, 5);
+            ?>
+
             <label for="id_tamu">ID Tamu</label>
-            <input type="text" class="form-control" id="id_tamu" name="id_tamu" autocomplete="off">
+            <input type="text" class="form-control" id="id_tamu" name="id_tamu" autocomplete="off" value="<?= $id_tamu ?>" readonly>
           </div>
           <div class="form-group">
             <label for="nama">Nama</label>
