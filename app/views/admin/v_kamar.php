@@ -174,8 +174,15 @@ $no = 1;
       <form action="../../models/saves/s_kamar.php" method="POST">
         <div class="modal-body bg-secondary px-5">
           <div class="form-group">
+
+            <?php
+            $query_autonumber = mysqli_query($db, "SELECT * FROM kamar ORDER BY kode_kamar DESC LIMIT 1");
+            $latestKD = mysqli_fetch_assoc($query_autonumber);
+            $kode_kamar = autonumber($latestKD['kode_kamar'], 4, 3);
+            ?>
+
             <label for="kode_kamar">Kode Kamar</label>
-            <input type="text" class="form-control" id="kode_kamar" name="kode_kamar" autocomplete="off">
+            <input type="text" class="form-control" id="kode_kamar" name="kode_kamar" autocomplete="off" value="<?= $kode_kamar ?>">
           </div>
           <div class="form-group">
             <label for="kamar">Tipe Kamar</label>
