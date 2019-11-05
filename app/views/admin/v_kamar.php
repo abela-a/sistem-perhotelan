@@ -182,7 +182,7 @@ $no = 1;
             ?>
 
             <label for="kode_kamar">Kode Kamar</label>
-            <input type="text" class="form-control" id="kode_kamar" name="kode_kamar" autocomplete="off" value="<?= $kode_kamar ?>">
+            <input type="text" class="form-control" id="kode_kamar" name="kode_kamar" autocomplete="off" value="<?= $kode_kamar ?>" readonly>
           </div>
           <div class="form-group">
             <label for="kamar">Tipe Kamar</label>
