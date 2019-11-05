@@ -32,7 +32,7 @@ $no = 1;
         <th scope="col">Alamat</th>
         <th scope="col">Pekerjaan</th>
         <th scope="col">Telepon</th>
-        <th scope="col">Pilihan</th>
+        <th scope="col" style="width:70px">Pilihan</th>
         <th scope="col" style="width:10px"><i class="fa fa-bars" aria-hidden="true"></i></th>
       </tr>
     </thead>
