@@ -177,8 +177,14 @@ $no = 1;
 
             <?php
             $query_autonumber = mysqli_query($db, "SELECT * FROM kamar ORDER BY kode_kamar DESC LIMIT 1");
-            $latestKD = mysqli_fetch_assoc($query_autonumber);
-            $kode_kamar = autonumber($latestKD['kode_kamar'], 4, 3);
+
+            if (mysqli_num_rows($query_autonumber) > 0) {
+              $latestKD = mysqli_fetch_assoc($query_autonumber);
+              $kode_kamar = autonumber($latestKD['kode_kamar'], 4, 3);
+            } else {
+              $kode_kamar = 'KMR-001';
+            }
+
             ?>
 
             <label for="kode_kamar">Kode Kamar</label>

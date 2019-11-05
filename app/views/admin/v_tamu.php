@@ -174,8 +174,14 @@ $no = 1;
 
             <?php
             $query_autonumber = mysqli_query($db, "SELECT * FROM tamu ORDER BY id_tamu DESC LIMIT 1");
-            $latestKD = mysqli_fetch_assoc($query_autonumber);
-            $id_tamu = autonumber($latestKD['id_tamu'], 3, 5);
+
+            if (mysqli_num_rows($query_autonumber) > 0) {
+              $latestKD = mysqli_fetch_assoc($query_autonumber);
+              $id_tamu = autonumber($latestKD['id_tamu'], 3, 5);
+            } else {
+              $id_tamu = 'TM-00001';
+            }
+
             ?>
 
             <label for="id_tamu">ID Tamu</label>

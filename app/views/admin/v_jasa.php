@@ -162,8 +162,14 @@ $no = 1;
 
             <?php
             $query_autonumber = mysqli_query($db, "SELECT * FROM jasa ORDER BY kode_jasa DESC LIMIT 1");
-            $latestKD = mysqli_fetch_assoc($query_autonumber);
-            $kode_jasa = autonumber($latestKD['kode_jasa'], 5, 5);
+
+            if (mysqli_num_rows($query_autonumber) > 0) {
+              $latestKD = mysqli_fetch_assoc($query_autonumber);
+              $kode_jasa = autonumber($latestKD['kode_jasa'], 5, 5);
+            } else {
+              $kode_jasa = 'JASA-00001';
+            }
+
             ?>
 
             <label for="kode_jasa">Kode Jasa</label>
