@@ -159,8 +159,15 @@ $no = 1;
       <form action="../../models/saves/s_jasa.php" method="POST">
         <div class="modal-body bg-secondary px-5">
           <div class="form-group">
+
+            <?php
+            $query_autonumber = mysqli_query($db, "SELECT * FROM jasa ORDER BY kode_jasa DESC LIMIT 1");
+            $latestKD = mysqli_fetch_assoc($query_autonumber);
+            $kode_jasa = autonumber($latestKD['kode_jasa'], 5, 5);
+            ?>
+
             <label for="kode_jasa">Kode Jasa</label>
-            <input type="text" class="form-control" id="kode_jasa" name="kode_jasa" autocomplete="off">
+            <input type="text" class="form-control" id="kode_jasa" name="kode_jasa" autocomplete="off" readonly value="<?= $kode_jasa ?>">
           </div>
           <div class="form-group">
             <label for="jasa">Jasa</label>
