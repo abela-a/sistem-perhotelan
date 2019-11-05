@@ -10,7 +10,8 @@ $telepon = $_POST['telepon'];
 $query_edit_tamu = "UPDATE tamu SET
                 nama = '$nama',
                 alamat = '$alamat',
-                pekerjaan = '$pekerjaan'
+                pekerjaan = '$pekerjaan',
+                telepon = '$telepon'
                 WHERE id_tamu = '$id_tamu'";
 $edit_tamu = mysqli_query($db, $query_edit_tamu);
 
