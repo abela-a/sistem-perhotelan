@@ -5,6 +5,10 @@ include '../templates/navadmin.php';
 
 // QUERY TAMU
 $query_tamu = mysqli_query($db, "SELECT * FROM tamu ORDER BY id_tamu DESC");
+// QUERY KAMAR KOSONG
+$query_kamarkosong = mysqli_query($db, "SELECT * FROM kamar WHERE status_kamar = 'Kosong'");
+// QUERY JASA
+$query_jasa = mysqli_query($db, "SELECT * FROM jasa");
 // NOMOR URUT UNTUK TABEL
 $no = 1;
 ?>
@@ -47,7 +51,7 @@ $no = 1;
           <td class="align-middle"><?= $tamu['telepon']; ?></td>
           <td class="align-middle">
             <?php if ($tamu['status_tamu'] == '') : ?>
-              <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#check-in<?= $tamu['id_tamu'] ?>">Check In</button>
+              <button class="btn btn-sm btn-success tombol-check-in" data-toggle="modal" data-target="#check-in<?= $tamu['id_tamu'] ?>">Check In</button>
             <?php elseif ($tamu['status_tamu'] == 'Check Out') : ?>
               <button class="btn btn-sm btn-secondary" disabled>Checked Out</button>
             <?php else : ?>
@@ -153,6 +157,79 @@ $no = 1;
           </div>
         </div>
         <!-- /MODAL HAPUS -->
+
+        <?php if ($tamu['status_tamu'] == '') : ?>
+          <!-- MODAL CHECK-IN -->
+          <div class="modal fade checkin" id="check-in<?= $tamu['id_tamu'] ?>" tabindex="-1" role="dialog" aria-labelledby="check-inLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="check-inLabel">Check In</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <form action="../../models/proses/check-in.php" method="POST">
+                  <div class="modal-body bg-secondary px-5">
+
+                    <input type="hidden" name="id_tamu" id="id_tamu" value="<?= $tamu['id_tamu'] ?>">
+
+                    <div class="form-group">
+                      <label for="kamar">Kamar</label>
+                      <select class="form-control" id="kamar" name="kamar">
+                        <option selected disabled>Pilih Kamar</option>
+                        <?php while ($kamarkosong = mysqli_fetch_array($query_kamarkosong)) : ?>
+                          <option harga="<?= $kamarkosong['harga_kamar'] ?>" value="<?= $kamarkosong['kode_kamar'] ?>">
+                            <?= $kamarkosong['kode_kamar'] ?> | <?= $kamarkosong['kamar'] ?> | Rp.<?= $kamarkosong['harga_kamar'] ?>
+                          </option>
+                        <?php endwhile; ?>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="harga_kamar">Harga Kamar</label>
+                      <input type="text" readonly class="form-control" id="harga_kamar" name="harga_kamar" autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="jasa">Jasa</label>
+                      <select class="form-control" id="jasa" name="jasa">
+                        <option selected disabled>Pilih Jasa</option>
+                        <?php while ($jasa = mysqli_fetch_array($query_jasa)) : ?>
+                          <option harga="<?= $kamarkosong['harga_jasa'] ?>" value="<?= $jasa['kode_jasa'] ?>">
+                            <?= $jasa['kode_jasa'] ?> | <?= $jasa['jasa'] ?> | Rp.<?= $jasa['harga_jasa'] ?>
+                          </option>
+                        <?php endwhile; ?>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="harga_jasa">Harga Kamar</label>
+                      <input type="text" readonly class="form-control" id="harga_jasa" name="harga_jasa" autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="tanggal_check_in">Tanggal Check In</label>
+                      <input type="date" class="form-control" id="tanggal_check_in" name="tanggal_check_in" autocomplete="off">
+                    </div>
+
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Proses Check In</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- /MODAL CHECK-IN -->
+        <?php elseif ($tamu['status_tamu'] == 'Check Out') : ?>
+          <!-- HEHE NDADA TRANSAKSI KA SUDAH MI CHECK-OUT -->
+        <?php else : ?>
+          <!-- MODAL CHECK-OUT -->
+          <!-- /MODAL CHECK-OUT -->
+        <?php endif; ?>
+
       <?php endwhile; ?>
     </tbody>
   </table>
