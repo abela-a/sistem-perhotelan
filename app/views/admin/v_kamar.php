@@ -8,12 +8,12 @@ $query_kamar = mysqli_query($db, "SELECT * FROM kamar ORDER BY kode_kamar DESC")
 // NOMOR URUT UNTUK TABEL
 $no = 1;
 ?>
-<div class="container mt-4 py-3 px-5 bg-white rounded shadow-sm border border-warning">
+<div class="container mt-4 py-3 px-5 bg-white rounded shadow-sm border border-istimewa">
   <div class="clearfix">
-    <h1 class="display-4 font-weight-bold text-warning float-left">
-      <?= $judul; ?>
+    <h1 class="display-5 font-weight-bold text-primary float-left mt-1">
+      <?= strtoupper($judul); ?>
     </h1>
-    <button class="btn shadow-none btn-primary float-right mt-3" data-toggle="modal" data-target="#TambahKamar">
+    <button class="btn shadow-none btn-primary float-right" data-toggle="modal" data-target="#TambahKamar">
       <i class="fas fa-bed fa-fw"></i>
       Tambah Kamar
     </button>
@@ -65,7 +65,7 @@ $no = 1;
             <button type="button" class="dropdown btn shadow-none btn-sm btn-icon-only" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-ellipsis-v fa-fw" aria-hidden="true"></i>
             </button>
-            <div class="dropdown-menu dropdown-warning dropdown-warning dropdown-menu-right mt-2">
+            <div class="dropdown-menu dropdown-primary dropdown-menu-right mt-2">
               <button class="dropdown-item" data-toggle="modal" data-target="#EditKamar<?= $kamar['kode_kamar'] ?>">
                 <i class="fas fa-edit fa-fw"></i>
                 Edit

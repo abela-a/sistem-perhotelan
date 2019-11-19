@@ -4,10 +4,10 @@ $judul = "Dashboard";
 include '../templates/navadmin.php';
 ?>
 
-<div class="container mt-4 py-3 px-5 bg-white rounded shadow-sm border border-warning">
+<div class="container mt-4 py-3 px-5 bg-white rounded shadow-sm border border-istimewa">
   <div class="clearfix">
-    <h1 class="display-4 font-weight-bold text-warning float-left">
-      <?= $judul; ?>
+    <h1 class="display-5 font-weight-bold text-primary float-left mt-1">
+      <?= strtoupper($judul); ?>
     </h1>
   </div>
 </div>
