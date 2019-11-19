@@ -15,8 +15,8 @@ $simpan_kamar = mysqli_query($db, $query_simpan_kamar);
 
 if ($simpan_kamar) {
   buatAlert('Kamar berhasil ditambahkan!', 'success');
-  header('Location:../../views/admin/v_kamar.php');
+  header('Location:../../views/admin/kamar.php');
 } else {
   buatAlert('Kamar gagal ditambahkan!', 'danger');
-  header('Location:../../views/admin/v_kamar.php');
+  header('Location:../../views/admin/kamar.php');
 }

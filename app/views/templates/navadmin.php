@@ -26,7 +26,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link" href="#" id="navbar-primary_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tamu</a>
           <div class="dropdown-menu dropdown-primary dropdown-menu-right" aria-labelledby="navbar-primary_dropdown_1">
-            <a class="dropdown-item" href="../admin/v_tamu.php">Tamu</a>
+            <a class="dropdown-item" href="../admin/tamu.php">Tamu</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="../admin/v_check_in.php">Check-In</a>
             <a class="dropdown-item" href="../admin/v_check_out.php">Check-Out</a>
@@ -35,8 +35,8 @@
         <li class="nav-item dropdown">
           <a class="nav-link" href="#" id="navbar-primary_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Input Data</a>
           <div class="dropdown-menu dropdown-primary dropdown-menu-right" aria-labelledby="navbar-primary_dropdown_1">
-            <a class="dropdown-item" href="../admin/v_jasa.php">Jasa</a>
-            <a class="dropdown-item" href="../admin/v_kamar.php">Kamar</a>
+            <a class="dropdown-item" href="../admin/jasa.php">Jasa</a>
+            <a class="dropdown-item" href="../admin/kamar.php">Kamar</a>
           </div>
         </li>
       </ul>

@@ -16,8 +16,8 @@ $simpan_jasa = mysqli_query($db, $query_simpan_jasa);
 
 if ($simpan_jasa) {
   buatAlert('Jasa berhasil ditambahkan!', 'success');
-  header('Location:../../views/admin/v_jasa.php');
+  header('Location:../../views/admin/jasa.php');
 } else {
   buatAlert('Jasa gagal ditambahkan!', 'danger');
-  header('Location:../../views/admin/v_jasa.php');
+  header('Location:../../views/admin/jasa.php');
 }

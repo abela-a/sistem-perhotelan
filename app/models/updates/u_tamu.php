@@ -17,8 +17,8 @@ $edit_tamu = mysqli_query($db, $query_edit_tamu);
 
 if ($edit_tamu) {
   buatAlert('Tamu berhasil diubah!', 'success', 'fas fa-edit');
-  header('Location:../../views/admin/v_tamu.php');
+  header('Location:../../views/admin/tamu.php');
 } else {
   buatAlert('Tamu gagal diubah!', 'danger', 'fas fa-edit');
-  header('Location:../../views/admin/v_tamu.php');
+  header('Location:../../views/admin/tamu.php');
 }

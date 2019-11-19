@@ -24,8 +24,8 @@ $simpan_tamu = mysqli_query($db, $query_simpan_tamu);
 
 if ($simpan_tamu) {
   buatAlert('Tamu berhasil ditambahkan!', 'success');
-  header('Location:../../views/admin/v_tamu.php');
+  header('Location:../../views/admin/tamu.php');
 } else {
   buatAlert('Tamu gagal ditambahkan!', 'danger');
-  header('Location:../../views/admin/v_tamu.php');
+  header('Location:../../views/admin/tamu.php');
 }

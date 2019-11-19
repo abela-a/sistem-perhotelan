@@ -13,8 +13,8 @@ $edit_kamar = mysqli_query($db, $query_edit_kamar);
 
 if ($edit_kamar) {
   buatAlert('Kamar berhasil diubah!', 'success', 'fas fa-edit');
-  header('Location:../../views/admin/v_kamar.php');
+  header('Location:../../views/admin/kamar.php');
 } else {
   buatAlert('Kamar gagal diubah!', 'danger', 'fas fa-edit');
-  header('Location:../../views/admin/v_kamar.php');
+  header('Location:../../views/admin/kamar.php');
 }
