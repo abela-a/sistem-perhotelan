@@ -6,7 +6,7 @@ include '../templates/navadmin.php';
 
 <div class="container mt-4 py-3 px-5 bg-white rounded shadow-sm border border-warning">
   <div class="clearfix">
-    <h1 class="display-2 text-warning float-left">
+    <h1 class="display-4 font-weight-bold text-warning float-left">
       <?= $judul; ?>
     </h1>
   </div>

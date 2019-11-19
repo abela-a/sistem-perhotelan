@@ -10,10 +10,10 @@ $no = 1;
 ?>
 <div class="container mt-4 py-3 px-5 bg-white rounded shadow-sm border border-warning">
   <div class="clearfix">
-    <h1 class="display-2 text-warning float-left">
+    <h1 class="display-4 font-weight-bold text-warning float-left">
       <?= $judul; ?>
     </h1>
-    <button class="btn btn-primary float-right mt-3" data-toggle="modal" data-target="#TambahKamar">
+    <button class="btn shadow-none btn-primary float-right mt-3" data-toggle="modal" data-target="#TambahKamar">
       <i class="fas fa-bed fa-fw"></i>
       Tambah Kamar
     </button>
@@ -23,13 +23,13 @@ $no = 1;
 
   <?php Alert(); ?>
 
-  <table class="table align-items-center table-flush mt-4" id="datatables">
+  <table class="table align-items-center table-bordered mt-4" id="datatables">
     <thead class="thead-light">
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Kamar</th>
-        <th scope="col">Tarif Kamar / Hari</th>
-        <th scope="col" style="width:10px"></th>
+        <th scope="col" class="text-center">#</th>
+        <th scope="col" class="text-center">Kamar</th>
+        <th scope="col" class="text-center">Tarif Kamar / Hari</th>
+        <th scope="col" class="text-center" style="width:10px"></th>
       </tr>
     </thead>
     <tbody>
@@ -41,31 +41,31 @@ $no = 1;
             <?= $kamar['kode_kamar']; ?>
             <!-- TIPE KAMAR -->
             <?php if ($kamar['kamar'] == 'VIP') : ?>
-              <span class="badge badge-warning">
+              <span class="badge shadow-none badge-warning">
                 <?= $kamar['kamar']; ?>
               </span>
             <?php else : ?>
-              <span class="badge badge-primary">
+              <span class="badge shadow-none badge-primary">
                 <?= $kamar['kamar']; ?>
               </span>
             <?php endif; ?>
             <!-- STATUS KAMAR -->
             <?php if ($kamar['status_kamar'] == 'Kosong') : ?>
-              <span class="badge badge-success">
+              <span class="badge shadow-none badge-success">
                 <?= $kamar['status_kamar']; ?>
               </span>
             <?php else : ?>
-              <span class="badge badge-danger">
+              <span class="badge shadow-none badge-danger">
                 <?= $kamar['status_kamar']; ?>
               </span>
             <?php endif; ?>
           </td>
           <td class="align-middle">Rp. <?= $kamar['harga_kamar']; ?>,-</td>
           <td class="align-middle">
-            <button type="button" class="dropdown btn btn-sm btn-icon-only text-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button type="button" class="dropdown btn shadow-none btn-sm btn-icon-only" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-ellipsis-v fa-fw" aria-hidden="true"></i>
             </button>
-            <div class="dropdown-menu dropdown-menu-right mt-2">
+            <div class="dropdown-menu dropdown-warning dropdown-warning dropdown-menu-right mt-2">
               <button class="dropdown-item" data-toggle="modal" data-target="#EditKamar<?= $kamar['kode_kamar'] ?>">
                 <i class="fas fa-edit fa-fw"></i>
                 Edit
@@ -89,14 +89,14 @@ $no = 1;
                 </button>
               </div>
               <form action="../../models/updates/u_kamar.php" method="POST">
-                <div class="modal-body bg-secondary px-5">
+                <div class="modal-body grey lighten-4 lighten-5 px-5">
                   <div class="form-group">
                     <label for="kode_kamar">Kode kamar</label>
                     <input type="text" class="form-control" id="kode_kamar" name="kode_kamar" autocomplete="off" readonly value="<?= $kamar['kode_kamar'] ?>">
                   </div>
                   <div class="form-group">
                     <label for="kamar">Tipe Kamar</label>
-                    <select class="form-control" id="kamar" name="kamar">
+                    <select class="form-control browser-default" id="kamar" name="kamar">
                       <option selected disabled>Pilih Unit kamar</option>
                       <option <?php if ($kamar['kamar'] == 'VIP') echo 'selected' ?>>VIP</option>
                       <option <?php if ($kamar['kamar'] == 'Reguler') echo 'selected' ?>>Reguler</option>
@@ -113,8 +113,8 @@ $no = 1;
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Keluar</button>
-                  <button type="submit" class="btn btn-primary">Edit Kamar</button>
+                  <button type="button" class="btn shadow-none btn-outline-primary" data-dismiss="modal">Keluar</button>
+                  <button type="submit" class="btn shadow-none btn-primary">Edit Kamar</button>
                 </div>
               </form>
             </div>
@@ -148,8 +148,8 @@ $no = 1;
 
                 <div class="modal-footer">
                   <input type="hidden" name="kode_kamar" value="<?= $kamar['kode_kamar'] ?>">
-                  <button type="submit" class="btn btn-white">Ok, Hapus</button>
-                  <button type="button" class="btn btn-link text-white ml-auto" data-dismiss="modal">Batal</button>
+                  <button type="submit" class="btn shadow-none btn-white">Ok, Hapus</button>
+                  <button type="button" class="btn shadow-none btn-link text-white ml-auto" data-dismiss="modal">Batal</button>
                 </div>
               </form>
             </div>
@@ -172,7 +172,7 @@ $no = 1;
         </button>
       </div>
       <form action="../../models/saves/s_kamar.php" method="POST">
-        <div class="modal-body bg-secondary px-5">
+        <div class="modal-body grey lighten-4 lighten-5 px-5">
           <div class="form-group">
 
             <?php
@@ -192,7 +192,7 @@ $no = 1;
           </div>
           <div class="form-group">
             <label for="kamar">Tipe Kamar</label>
-            <select class="form-control" id="kamar" name="kamar">
+            <select class="form-control browser-default" id="kamar" name="kamar">
               <option selected disabled>Pilih Tipe kamar</option>
               <option>VIP</option>
               <option>Reguler</option>
@@ -209,8 +209,8 @@ $no = 1;
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Keluar</button>
-          <button type="submit" class="btn btn-primary">Simpan Kamar</button>
+          <button type="button" class="btn shadow-none btn-outline-primary" data-dismiss="modal">Keluar</button>
+          <button type="submit" class="btn shadow-none btn-primary">Simpan Kamar</button>
         </div>
       </form>
     </div>

@@ -10,10 +10,10 @@ $no = 1;
 ?>
 <div class="container mt-4 py-3 px-5 bg-white rounded shadow-sm border border-warning">
   <div class="clearfix">
-    <h1 class="display-2 text-warning float-left">
+    <h1 class="display-4 font-weight-bold text-warning float-left">
       <?= $judul; ?>
     </h1>
-    <button class="btn btn-primary float-right mt-3" data-toggle="modal" data-target="#TambahJasa">
+    <button class="btn shadow-none btn-primary float-right mt-3" data-toggle="modal" data-target="#TambahJasa">
       <i class="fas fa-briefcase fa-fw"></i>
       Tambah Jasa
     </button>
@@ -23,15 +23,15 @@ $no = 1;
 
   <?php Alert(); ?>
 
-  <table class="table align-items-center table-flush mt-4" id="datatables">
+  <table class="table align-items-center table-bordered mt-4" id="datatables">
     <thead class="thead-light">
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Kode Jasa</th>
-        <th scope="col">Jasa</th>
-        <th scope="col">Unit Jasa</th>
-        <th scope="col">Harga Jasa</th>
-        <th scope="col" style="width:10px"></th>
+        <th scope="col" class="text-center">#</th>
+        <th scope="col" class="text-center">Kode Jasa</th>
+        <th scope="col" class="text-center">Jasa</th>
+        <th scope="col" class="text-center">Unit Jasa</th>
+        <th scope="col" class="text-center">Harga Jasa</th>
+        <th scope="col" class="text-center" style="width:10px"></th>
       </tr>
     </thead>
     <tbody>
@@ -43,10 +43,10 @@ $no = 1;
           <td class="align-middle"><?= $jasa['unit_jasa']; ?></td>
           <td class="align-middle">Rp. <?= $jasa['harga_jasa']; ?>,-</td>
           <td class="align-middle">
-            <button type="button" class="dropdown btn btn-sm btn-icon-only text-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button type="button" class="dropdown btn shadow-none btn-sm btn-icon-only" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-ellipsis-v fa-fw" aria-hidden="true"></i>
             </button>
-            <div class="dropdown-menu dropdown-menu-right mt-2">
+            <div class="dropdown-menu dropdown-warning dropdown-warning dropdown-menu-right mt-2">
               <button class="dropdown-item" data-toggle="modal" data-target="#EditJasa<?= $jasa['kode_jasa'] ?>">
                 <i class="fas fa-edit fa-fw"></i>
                 Edit
@@ -70,7 +70,7 @@ $no = 1;
                 </button>
               </div>
               <form action="../../models/updates/u_jasa.php" method="POST">
-                <div class="modal-body bg-secondary px-5">
+                <div class="modal-body grey lighten-4 lighten-5 px-5">
                   <div class="form-group">
                     <label for="kode_jasa">Kode Jasa</label>
                     <input type="text" class="form-control" id="kode_jasa" name="kode_jasa" autocomplete="off" readonly value="<?= $jasa['kode_jasa'] ?>">
@@ -81,7 +81,7 @@ $no = 1;
                   </div>
                   <div class="form-group">
                     <label for="unit_jasa">Unit Jasa</label>
-                    <select class="form-control" id="unit_jasa" name="unit_jasa">
+                    <select class="form-control browser-default" id="unit_jasa" name="unit_jasa">
                       <option selected disabled>Pilih Unit Jasa</option>
                       <option <?php if ($jasa['unit_jasa'] == 'Kebersihan') echo 'selected' ?>>Kebersihan</option>
                       <option <?php if ($jasa['unit_jasa'] == 'Keamanan') echo 'selected' ?>>Keamanan</option>
@@ -98,8 +98,8 @@ $no = 1;
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Keluar</button>
-                  <button type="submit" class="btn btn-primary">Edit Jasa</button>
+                  <button type="button" class="btn shadow-none btn-outline-primary" data-dismiss="modal">Keluar</button>
+                  <button type="submit" class="btn shadow-none btn-primary">Edit Jasa</button>
                 </div>
               </form>
             </div>
@@ -133,8 +133,8 @@ $no = 1;
 
                 <div class="modal-footer">
                   <input type="hidden" name="kode_jasa" value="<?= $jasa['kode_jasa'] ?>">
-                  <button type="submit" class="btn btn-white">Ok, Hapus</button>
-                  <button type="button" class="btn btn-link text-white ml-auto" data-dismiss="modal">Batal</button>
+                  <button type="submit" class="btn shadow-none btn-white">Ok, Hapus</button>
+                  <button type="button" class="btn shadow-none btn-link text-white ml-auto" data-dismiss="modal">Batal</button>
                 </div>
               </form>
             </div>
@@ -157,7 +157,7 @@ $no = 1;
         </button>
       </div>
       <form action="../../models/saves/s_jasa.php" method="POST">
-        <div class="modal-body bg-secondary px-5">
+        <div class="modal-body grey lighten-4 lighten-5 px-5">
           <div class="form-group">
 
             <?php
@@ -181,7 +181,7 @@ $no = 1;
           </div>
           <div class="form-group">
             <label for="unit_jasa">Unit Jasa</label>
-            <select class="form-control" id="unit_jasa" name="unit_jasa">
+            <select class="form-control browser-default" id="unit_jasa" name="unit_jasa">
               <option selected disabled>Pilih Unit Jasa</option>
               <option>Keimanan</option>
               <option>Kebersihan</option>
@@ -201,8 +201,8 @@ $no = 1;
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Keluar</button>
-          <button type="submit" class="btn btn-primary">Simpan Jasa</button>
+          <button type="button" class="btn shadow-none btn-outline-primary" data-dismiss="modal">Keluar</button>
+          <button type="submit" class="btn shadow-none btn-primary">Simpan Jasa</button>
         </div>
       </form>
     </div>
