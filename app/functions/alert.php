@@ -1,5 +1,5 @@
 <?php
-session_start();
+if (!session_id()) session_start();
 
 function buatAlert($pesan, $tipe, $icon = 'fas fa-check')
 {
