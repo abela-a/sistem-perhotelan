@@ -9,6 +9,8 @@ if (isset($_SESSION['login'])) {
 
 ?>
 
+<title>Login</title>
+
 <style>
   #login-register-img {
     height: 100vh;
