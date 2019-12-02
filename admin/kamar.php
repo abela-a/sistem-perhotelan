@@ -1,7 +1,7 @@
 <?php
-include '../templates/header.php';
+include '../app/views/templates/header.php';
 $judul = 'Data Kamar';
-include '../templates/navadmin.php';
+include '../app/views/templates/navadmin.php';
 
 // QUERY kamar
 $query_kamar = mysqli_query($db, "SELECT * FROM kamar ORDER BY kode_kamar DESC");
@@ -19,11 +19,11 @@ $no = 1;
     </button>
   </div>
 </div>
-<div class="container mt-4 bg-white rounded p-5 shadow-sm">
+<div class="container mt-4 bg-white rounded p-5 shadow-sm mb-5">
 
   <?php Alert(); ?>
 
-  <table class="table align-items-center table-bordered mt-4" id="datatables">
+  <table class="table align-items-center table-bordered mt-4" id="">
     <thead class="thead-light">
       <tr>
         <th scope="col" class="text-center">#</th>
@@ -88,7 +88,7 @@ $no = 1;
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <form action="../../models/updates/u_kamar.php" method="POST">
+              <form action="../app/models/KamarModel.php" method="POST">
                 <div class="modal-body grey lighten-4 lighten-5 px-5">
                   <div class="form-group">
                     <label for="kode_kamar">Kode kamar</label>
@@ -114,7 +114,7 @@ $no = 1;
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn shadow-none btn-outline-primary" data-dismiss="modal">Keluar</button>
-                  <button type="submit" class="btn shadow-none btn-primary">Edit Kamar</button>
+                  <button type="submit" class="btn shadow-none btn-primary" name="update">Edit Kamar</button>
                 </div>
               </form>
             </div>
@@ -133,7 +133,7 @@ $no = 1;
                   <span aria-hidden="true">×</span>
                 </button>
               </div>
-              <form action="../../models/deletes/d_kamar.php" method="POST">
+              <form action="../app/models/KamarModel.php" method="POST">
                 <div class="modal-body">
 
                   <div class="py-3 text-center">
@@ -148,7 +148,7 @@ $no = 1;
 
                 <div class="modal-footer">
                   <input type="hidden" name="kode_kamar" value="<?= $kamar['kode_kamar'] ?>">
-                  <button type="submit" class="btn shadow-none btn-white">Ok, Hapus</button>
+                  <button type="submit" class="btn shadow-none btn-white" name="delete">Ok, Hapus</button>
                   <button type="button" class="btn shadow-none btn-link text-white ml-auto" data-dismiss="modal">Batal</button>
                 </div>
               </form>
@@ -171,7 +171,7 @@ $no = 1;
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="../../models/saves/s_kamar.php" method="POST">
+      <form action="../app/models/KamarModel.php" method="POST">
         <div class="modal-body grey lighten-4 lighten-5 px-5">
           <div class="form-group">
 
@@ -210,7 +210,7 @@ $no = 1;
         </div>
         <div class="modal-footer">
           <button type="button" class="btn shadow-none btn-outline-primary" data-dismiss="modal">Keluar</button>
-          <button type="submit" class="btn shadow-none btn-primary">Simpan Kamar</button>
+          <button type="submit" class="btn shadow-none btn-primary" name="save">Simpan Kamar</button>
         </div>
       </form>
     </div>
@@ -218,4 +218,4 @@ $no = 1;
 </div>
 <!-- /MODAL TAMBAH -->
 
-<?php include '../templates/footer.php' ?>
+<?php include '../app/views/templates/footer.php' ?>

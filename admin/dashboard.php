@@ -1,7 +1,7 @@
 <?php
-include '../templates/header.php';
+include '../app/views/templates/header.php';
 $judul = "Dashboard";
-include '../templates/navadmin.php';
+include '../app/views/templates/navadmin.php';
 ?>
 
 <div class="container mt-4 py-3 px-5 bg-white rounded shadow-sm border border-istimewa">
@@ -15,4 +15,4 @@ include '../templates/navadmin.php';
 
 </div>
 
-<?php include '../templates/footer.php' ?>
+<?php include '../app/views/templates/footer.php' ?>
